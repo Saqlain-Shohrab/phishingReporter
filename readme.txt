@@ -21,3 +21,5 @@ add proxy to new project's package file -> "proxy" : "http://localhost:3001"
 install react router dom -> npm i react-router-dom
 
 npm start
+
+Created online server
