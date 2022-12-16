@@ -11,7 +11,7 @@ function employeeDetails() {
 }
 
 function phishingReport() {
-	const list = '[{"id":1,"client":"LIDL","status":1},{"id":1,"client":"Tesco","status":0},{"id":1,"client":"ALDI","status":1},{"id":1,"client":"Super Value","status":0},{"id":1,"client":"Lyca","status":1}]'
+	const list = '[{"id":1,"client":"LIDL","status":1,"phishing_count":0},{"id":1,"client":"Tesco","status":0,"phishing_count":0},{"id":1,"client":"ALDI","status":1,"phishing_count":0},{"id":1,"client":"Super Value","status":0,"phishing_count":0},{"id":1,"client":"Lyca","status":1,"phishing_count":0}]'
 	return list;
 }
 

@@ -47,7 +47,8 @@ class AddEmployee extends React.Component {
 		})
 		.then((res) => res.json())
 		.then((json) => {
-			alert(json['data'])
+			//alert(json['data'])
+			alert('Employee added successfully')
 			window.close();
 		})
 		
@@ -65,10 +66,13 @@ class AddEmployee extends React.Component {
 		
 		<div className="AddEmployee">
 			<h1>Enter Employee Details</h1>
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" />
+				<form className = "AddEmployee-Input" onSubmit={this.handleSubmit}>
+					<input className = "AddEmployee-Input" type="text" placeholder = "Enter Name"/>
+					<input className = "AddEmployee-Input" type="text" placeholder = "Enter Mobile No"/>
+					<input className = "AddEmployee-Input" type="text" placeholder = "Enter Email"/>
+					<input className = "AddEmployee-Input" type="text" placeholder = "Enter Company Name"/>
 				</form>
-			<button onClick = {() => this.addEmployee(employeeID)}>Add New Member</button>
+			<button onClick = {() => this.addEmployee(employeeID)}>Add New Employee</button>
 		</div>
 		
 		);

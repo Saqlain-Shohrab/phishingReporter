@@ -38,7 +38,7 @@ function addEmployeePage() : string {
 }
 
 function homePage() : string {
-	return BASE_URL_PAGE + "/fishing"
+	return BASE_URL_PAGE + "/fishing-report"
 }
 
 function userDetailsPage() : string {

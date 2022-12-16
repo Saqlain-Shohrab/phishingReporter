@@ -32,24 +32,44 @@ class FishingReport extends React.Component {
 		fetch(urlManager.getPhishingReportURL())
 		.then((res) => res.json())
 		.then((json) => {
-			this.setState({
+			/*this.setState({
 				items : json,
+				DataisLoaded1 : true
+			});*/
+			
+			fetch(urlManager.employeeDetailsURL())
+			.then((res) => res.json())
+			.then((json1) => {
+			
+			const v = json;
+			
+			for (let i = 0; i < v.length; i++) {
+				v[i].phishing_count = json1.filter( (item) => item.companyName.startsWith(v[i].client)).length
+			}
+			
+			this.setState({
+				items : v,
 				DataisLoaded : true
 			});
 		})
+			
+		})
+		
 	}
 
 	
 	render() {
-		const { DataisLoaded, items } = this.state;
+		const { DataisLoaded, items, users } = this.state;
 		if (!DataisLoaded) return <div>
 				<h1>Please wait, we are fetching data</h1>
 			</div>;
 		return (
 		
-		<div className="App">
+		<div className="FishingReport">
+		<h1>Phishing Report</h1>
 		  <table>
 			<tr>
+			<th>Sl No</th>
 			  <th>Client Name</th>
 			  <th>No of phishing</th>
 			  <th>Status</th>
@@ -57,9 +77,10 @@ class FishingReport extends React.Component {
 			{items.map((item, index) => {
 			  return (
 				<tr onClick = {() => this.itemClicked(item.client)} key={index}>
-				  <td>{item.client}</td>
 				  <td>{index}</td>
-				  <td>{(item.status === 1) ? 'Phished' : 'Secured'}</td>
+				  <td>{item.client}</td>
+				  <td>{item.phishing_count}</td>
+				  <td>{(item.phishing_count > 0) ? 'Phished' : 'Secured'}</td>
 				</tr>
 			  )
 			})}

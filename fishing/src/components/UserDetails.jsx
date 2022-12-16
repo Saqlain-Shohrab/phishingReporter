@@ -64,9 +64,10 @@ class UserDetails extends React.Component {
 		
 		<div className="UserDetails">
 		<div className = "UserDetailsSubView">
+		<h1>User Details</h1>
 		  <div className = "Assd">
 			<button className = 'UserDetailsButton' onClick = {() => this.refreshWindow()}>Refresh</button>
-			<button className = 'UserDetailsButton' onClick = {() => this.addNewMember()}>Add New Member</button>
+			<button className = 'UserDetailsButton' onClick = {() => this.addNewMember()}>Add New Employee</button>
 		  </div>
 		  <table>
 			<tr>

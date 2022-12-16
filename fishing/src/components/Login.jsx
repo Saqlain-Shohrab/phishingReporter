@@ -17,14 +17,9 @@ class Login extends React.Component {
 	
 	
 	executeLogin() {
-		//window.redirect(urlManager.homePage(), "_blank")
-		//window.location.href = urlManager.homePage();
 		alert('Logged In successfully');
 		window.close();
 		window.open(urlManager.homePage());
-		//this.context.router.push("/fishing");
-		//let history = useHistory();
-		//history.push("/fishing");
 	}
 	render() {
 		

@@ -89,12 +89,12 @@ class EmailTemplate extends React.Component {
 			</div>;
 		return (
 		
-		<div>
+		<div className = "EmailTemplate">
 		  
 		  <div>
 			<h1>Phishing Simulation</h1>
 				<form >
-					<input onChange={evt => this.updateInputValue(evt)} type="text" />
+					<input className = "EmailTemplate-Input" onChange={evt => this.updateInputValue(evt)} type="text" placeholder="Pleas enter the email body"/>
 				</form>
 			<button onClick = {() => this.checkWithTemplate()}>Check</button>
 		</div>

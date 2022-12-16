@@ -13,27 +13,27 @@ export const SidebarData = [
     cName: "nav-text"
   },*/
   {
-    title: "EmailTemplate",
+    title: "Phishing Simulation",
     path: "/email-templates",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text"
-  },
+  }/*,
   {
     title: "Phishing",
     path: "/fishing",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text"
-  },
+  }*/,
   {
     title: "Phishing Report",
     path: "/fishing-report",
-    icon: <IoIcons.IoMdPeople />,
+    icon: <AiIcons.AiFillCodeSandboxCircle />,
     cName: "nav-text"
   },
   {
     title: "UserDetails",
     path: "/user-details",
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: < IoIcons.IoMdPeople/>,
     cName: "nav-text"
   },
   {
