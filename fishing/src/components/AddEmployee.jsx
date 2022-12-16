@@ -1,5 +1,12 @@
+
+//This class is used to add and also edit users
+//The name of the clas was defined at the very begning, so changing at this moment(30/11/2022) is not a good idea.
+
 import React from 'react';
 import './AddEmployee.css';
+
+import { EditText, EditTextarea } from 'react-edit-text';
+import 'react-edit-text/dist/index.css';
 
 const urlManager = require('./URLManager');
 
@@ -21,6 +28,8 @@ class AddEmployee extends React.Component {
 			DataisLoaded : true,
 			employeeID : localStorage.pageData
 		});
+		
+		localStorage.clear();
 	}
 
 	addEmployee(employeeID) {
@@ -45,6 +54,8 @@ class AddEmployee extends React.Component {
 		
 	}
 	
+	handleSubmit() {}
+	
 	render() {
 		const { DataisLoaded, items, employeeID } = this.state;
 		if (!DataisLoaded) return <div>
@@ -53,7 +64,11 @@ class AddEmployee extends React.Component {
 		return (
 		
 		<div className="AddEmployee">
-		  <button onClick = {() => this.addEmployee(employeeID)}>Add New Member</button>
+			<h1>Enter Employee Details</h1>
+				<form onSubmit={this.handleSubmit}>
+					<input type="text" />
+				</form>
+			<button onClick = {() => this.addEmployee(employeeID)}>Add New Member</button>
 		</div>
 		
 		);

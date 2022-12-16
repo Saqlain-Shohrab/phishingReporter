@@ -13,7 +13,8 @@
 }
 
 .UserDetailsButton {
-	margin : 20;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 table {
@@ -22,13 +23,18 @@ table {
   width: 800px;
   height: 200px;
 }
-  
+
+tr {
+  height: 10px;
+}
+
 th {
   border-bottom: 1px solid black;
 }
   
 td {
   text-align: center;
+  height: 50px;
 }
 
 .UserDetails-header {

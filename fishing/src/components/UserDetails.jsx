@@ -9,34 +9,54 @@ class UserDetails extends React.Component {
 		
 		this.state = {
 			items : [],
-			DataisLoaded : false
+			DataisLoaded : false,
+			companyName : ''
 		};
 	};
 	
+	filteredArray(items, cmpName) {
+		const filtered = items.filter(item => {
+			return item.copanyName.startsWith(cmpName);
+		});
+		return filtered;
+	}
+	
 	componentDidMount() {
-
+		const cmpNm = localStorage.pageData == null ? '' : localStorage.pageData
+		
 		fetch(urlManager.employeeDetailsURL())
 		.then((res) => res.json())
 		.then((json) => {
+			//alert(cmpNm)
+			const filtered = json.filter( (item) => item.companyName.startsWith(cmpNm))
 			this.setState({
-				items : json,
-				DataisLoaded : true
+				items : filtered,
+				DataisLoaded : true,
+				companyName : cmpNm
 			});
 		})
+		
+		//localStorage.clear();
 	}
 
 	refreshWindow() {
+		localStorage.clear();
 		window.location.reload();
 	}
 	
+	addNewMember() {
+		window.open(urlManager.addEmployeePage());
+	}
+	
 	editItem(item) {
-		//alert('Edit clicked on ' + item.name)
+		
 		localStorage.setItem("pageData", item.id)
 		window.open(urlManager.addEmployeePage(), "_blank")
 	}
 	
 	render() {
-		const { DataisLoaded, items } = this.state;
+		const { DataisLoaded, items, companyName } = this.state;
+		
 		if (!DataisLoaded) return <div>
 				<h1>Please wait, we are fetching data</h1>
 			</div>;
@@ -44,18 +64,25 @@ class UserDetails extends React.Component {
 		
 		<div className="UserDetails">
 		<div className = "UserDetailsSubView">
-		  <button className = 'UserDetailsButton' onClick = {() => this.refreshWindow()}>Refresh</button>
+		  <div className = "Assd">
+			<button className = 'UserDetailsButton' onClick = {() => this.refreshWindow()}>Refresh</button>
+			<button className = 'UserDetailsButton' onClick = {() => this.addNewMember()}>Add New Member</button>
+		  </div>
 		  <table>
 			<tr>
+			  <th>Sl No.</th>
 			  <th>Name</th>
+			  <th>Company</th>
 			  <th>Contact No</th>
 			  <th>Email Address</th>
 			  <th>Action</th>
 			</tr>
-			{items.map((item) => {
+			{items.map((item, index) => {
 			  return (
 				<tr key={item.id}>
+				  <td>{index + 1}</td>
 				  <td>{item.name}</td>
+				  <td>{item.companyName}</td>
 				  <td>{item.mob}</td>
 				  <td>{item.email}</td>
 				  <td onClick = {() => this.editItem(item)}>Edit</td>
@@ -63,6 +90,7 @@ class UserDetails extends React.Component {
 			  )
 			})}
 		  </table>
+		  
 		  </div>
 		</div>
 		

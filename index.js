@@ -85,6 +85,20 @@ router.route('/addEmployee').post((request, response) => {
 	
 });
 
+//Get email template
+router.route('/getEmailTemplate').get((request, response) => {
+	
+	let body = request.body;
+	
+	console.log(body)
+	
+	dboperations.getEmailTemplate()
+	.then(result => {
+		response.json(result);
+	})
+	
+});
+
 app.listen(process.env.PORT || 5000, () => {
 	console.log
 })

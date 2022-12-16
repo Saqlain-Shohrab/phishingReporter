@@ -2,7 +2,8 @@ import React from 'react';
 //STYLES
 import './FishingReport.css';
 
-const urlManager = require('./URLManager')
+const urlManager = require('./URLManager');
+
 class FishingReport extends React.Component {
 	constructor(props) {
 		super(props);
@@ -21,7 +22,8 @@ class FishingReport extends React.Component {
 
 	itemClicked(item) {
 	
-		window.open("http://localhost:3000/add-employee", "_blank")
+		localStorage.setItem("pageData", item)
+		window.open(urlManager.userDetailsPage(), "_blank")
 
 	}	
 	

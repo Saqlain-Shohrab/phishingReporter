@@ -10,6 +10,7 @@ const API = "/api"
 //*****************************************************************//
 
 
+/*ALL API ENDPOINTS*/
 function employeeDetailsURL() : string {
 	return BASE_URL + API + "/getEmployees"
 }
@@ -26,8 +27,22 @@ function getPhishingReportURL() : string {
 	return BASE_URL + API + "/getPhishingReport"
 }
 
+function getEmailTemplateURL() : string {
+	return BASE_URL + API + "/getEmailTemplate"
+}
+
+
+/*ALL PAGE URLS*/
 function addEmployeePage() : string {
 	return BASE_URL_PAGE + "/add-employee"
+}
+
+function homePage() : string {
+	return BASE_URL_PAGE + "/fishing"
+}
+
+function userDetailsPage() : string {
+	return BASE_URL_PAGE + "/user-details"
 }
 
 module.exports = {
@@ -35,5 +50,8 @@ module.exports = {
 	staticTestURL : staticTestURL,
 	addEmployeeURL : addEmployeeURL,
 	getPhishingReportURL : getPhishingReportURL,
-	addEmployeePage : addEmployeePage
+	addEmployeePage : addEmployeePage,
+	homePage : homePage,
+	userDetailsPage : userDetailsPage,
+	getEmailTemplateURL : getEmailTemplateURL
 }

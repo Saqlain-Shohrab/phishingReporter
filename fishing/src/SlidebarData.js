@@ -6,12 +6,12 @@ import * as IoIcons from "react-icons/io";
 
 
 export const SidebarData = [
-  {
+  /*{
     title: "Login",
     path: "/",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text"
-  },
+  },*/
   {
     title: "EmailTemplate",
     path: "/email-templates",
@@ -19,13 +19,13 @@ export const SidebarData = [
     cName: "nav-text"
   },
   {
-    title: "Fishing",
+    title: "Phishing",
     path: "/fishing",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text"
   },
   {
-    title: "Fishing Report",
+    title: "Phishing Report",
     path: "/fishing-report",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text"
@@ -34,6 +34,12 @@ export const SidebarData = [
     title: "UserDetails",
     path: "/user-details",
     icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: "nav-text"
+  },
+  {
+    title: "Logout",
+    path: "/",
+    icon: <AiIcons.AiOutlineLogout />,
     cName: "nav-text"
   }
 ];
