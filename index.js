@@ -99,6 +99,20 @@ router.route('/getEmailTemplate').get((request, response) => {
 	
 });
 
+
+router.route('/testingAPI').get((request, response) => {
+	
+	let body = request.body;
+	
+	console.log(body)
+	
+	dboperations.connectionsToMySQL()
+	.then(result => {
+		response.json(result);
+	})
+	
+});
+
 app.listen(process.env.PORT || 5000, () => {
 	console.log
 })

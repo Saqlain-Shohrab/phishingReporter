@@ -1,5 +1,6 @@
 var config = require('./dbconfig');
 var sql = require('mssql')
+let mysql = require('mysql');
 
 const EMAIL_TEMPLATE_TABLE = 'EmailTemplate';
 const EMPLOYEE_EPOC_TABLE = 'employe_spoc';
@@ -7,6 +8,25 @@ const EMPLOYEE_EPOC_TABLE = 'employe_spoc';
 const staticJSON = require('./StaticJSONResponces')
 
 const staticMode = true;
+
+
+let connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'todoapp'
+});
+
+function connectionsToMySQL() {
+	connection.connect(function(err) {
+	  if (err) {
+		return console.error('error: ' + err.message);
+	  }
+
+	  console.log('Connected to the MySQL server.');
+	});
+}
+
 
 async function addEmailTemplate(id, business_name, contact_no) {
 	try {
@@ -114,5 +134,6 @@ module.exports = {
 	getEmailTemplate : getEmailTemplate,
 	getEmployeeDetails : getEmployeeDetails,
 	getPhishingReport : getPhishingReport,
-	addEmployee : addEmployee
+	addEmployee : addEmployee,
+	connectionsToMySQL : connectionsToMySQL
 }
