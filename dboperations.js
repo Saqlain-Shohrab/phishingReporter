@@ -1,31 +1,16 @@
 var config = require('./dbconfig');
-var sql = require('mssql')
+var sql = require('mssql/msnodesqlv8')
 let mysql = require('mysql');
+var Connection = require('tedious').Connection;
+var Request = require('tedious').Request;
 
 const EMAIL_TEMPLATE_TABLE = 'EmailTemplate';
 const EMPLOYEE_EPOC_TABLE = 'employe_spoc';
 
 const staticJSON = require('./StaticJSONResponces')
 
-const staticMode = true;
+const staticMode = false;
 
-
-let connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'todoapp'
-});
-
-function connectionsToMySQL() {
-	connection.connect(function(err) {
-	  if (err) {
-		return console.error('error: ' + err.message);
-	  }
-
-	  console.log('Connected to the MySQL server.');
-	});
-}
 
 
 async function addEmailTemplate(id, business_name, contact_no) {
@@ -54,12 +39,39 @@ async function getEmailTemplate() {
 }
 
 
+function executeStatement() {
+    
+  }
+
 //Query to get details of all the Employees
 async function getEmployeeDetails() {
 	
 	if (staticMode) {
 		return JSON.parse(staticJSON.employeeDetails());
 	}
+	
+
+	
+	/*var connection = new Connection(config);
+	
+	// Setup event handler when the connection is established. 
+	  connection.on('connect', function(err) {
+		if(err) {
+			console.log("ERROR POINT A");
+		  console.log('Error: ', err)
+		}
+
+		connection.execSql(request);
+	  });
+
+	  // Initialize the connection.
+	  connection.connect();
+	  
+	  //await sql.connect(config)
+	  //const result = await sql.query`select * from employe_spoc`;
+	  //return result;
+	  
+	*/
 	
 	try {
 		let pool = await sql.connect(config);
@@ -134,6 +146,5 @@ module.exports = {
 	getEmailTemplate : getEmailTemplate,
 	getEmployeeDetails : getEmployeeDetails,
 	getPhishingReport : getPhishingReport,
-	addEmployee : addEmployee,
-	connectionsToMySQL : connectionsToMySQL
+	addEmployee : addEmployee
 }
