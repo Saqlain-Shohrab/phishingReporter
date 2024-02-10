@@ -12,13 +12,13 @@ Open package.json add new parameter to 'scripts' as "dev" : "nodemon index.js" <
 
 In the terminal use 'npm run dev' command.
 
-Install microsoft SQL with command 'npm install mssql'
+Install SQL with command 'npm install mssql'
 
 create react project npm create-react-app <project name>
 
 add proxy to new project's package file -> "proxy" : "http://localhost:3001"
 
-install react router dom -> npm i react-router-dom
+install router dom -> npm i react-router-dom
 
 npm start
 
